@@ -1,0 +1,10 @@
+body{
+    /* background: url("../images/batman-background.jpg"); */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* width: 100%; */
+    margin: 0 auto;
+    opacity: 1.0;
+}

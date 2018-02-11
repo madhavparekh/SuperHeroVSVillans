@@ -45,6 +45,7 @@ $(document).ready(function(){
                 opponentPicked = true;
                 //gray out other opponents till done with one selected
                 $('#players').css('opacity', '0.5');
+                $('#picker-header').html('Fight.. Fight.. Fight..');
                 $('#fightarea').show();
             }
             $('.playground').show();
@@ -66,10 +67,10 @@ $(document).ready(function(){
 
         $('#you').find('.card-text.sLeft').html(myJoker.strengthLeft);
         $('#them').find('.card-text.sLeft').html(oppJoker.strengthLeft);
-
-        $('#eliminated').show();
+  
 
         if(oppJoker.strengthLeft <= 0){
+            $('#eliminated').show();
             moveCardToEliminated($('#them').find('.joker'));
             opponentPicked = false;
             //All effect of winning will go here
@@ -81,10 +82,12 @@ $(document).ready(function(){
             if($.trim($('#players').html()) == ''){
                 $('#picker-header').html('Yay, Gotham is all yours');
                 allDone = true;
+                lost = false;
                 $('.reset').show();
             }    
         }
         if(myJoker.strengthLeft <= 0){
+            $('#eliminated').show();
             moveCardToEliminated($('#you').find('.joker'));
             //All effect of losing will go here
             $('.reset').show();
@@ -116,6 +119,7 @@ $(document).ready(function(){
             opponentPicked = false;
             allDone = false;
             myJoker.strikes = 0;
+            lost = false;
             //hide divs
             $('#eliminated').hide();
             $('.playground').hide();
@@ -145,6 +149,7 @@ $(document).ready(function(){
         //hiding strenght and replacing with strenght Left
         playerId.find('p').hide();
         playerId.find('.card-body').append('<p class="card-text sLeft">' +player.strengthLeft +'</p>');
+  
         console.log(player.name +' ' +player.strength + ' ' + player.strikePower);
     }
 })

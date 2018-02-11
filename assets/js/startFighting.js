@@ -51,16 +51,10 @@ $(document).ready(function(){
             }
             $('.playground').show();
         }
-        
     });
     
     //Call fightAlgo
     $('#strike').click(function(){
-        if(opponentPicked)
-            strikeOpp();    
-    });
-    
-    function strikeOpp(){
         myJoker.strikes++;
         oppJoker.strengthLeft -= myJoker.strikePower * myJoker.strikes;
         myJoker.strengthLeft -= oppJoker.strikePower;
@@ -87,7 +81,7 @@ $(document).ready(function(){
                 $('.reset').show();
             }    
         }
-        if(myJoker.strengthLeft <= 0){
+        else if(myJoker.strengthLeft <= 0){
             $('#eliminated').show();
             moveCardToEliminated($('#you').find('.joker'));
             //All effect of losing will go here
@@ -97,7 +91,7 @@ $(document).ready(function(){
             allDone = true;
             $('#you').parent().find('h1').html('You have been eliminated! Click "Rematch" to try again');
         }
-    }
+    });
 
     $('#reset').on('click', function(){
         if(allDone){
@@ -152,7 +146,6 @@ $(document).ready(function(){
         //hiding strenght and replacing with strenght Left
         playerId.find('p').hide();
         playerId.find('.card-body').append('<p class="card-text sLeft">' +player.strengthLeft +'</p>');
-  
         console.log(player.name +' ' +player.strength + ' ' + player.strikePower);
     }
 })

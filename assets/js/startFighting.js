@@ -32,6 +32,7 @@ $(document).ready(function(){
             var playerId = $(e.target).parent().parent();
             playerId.removeClass('col-2');
             playerId.addClass('col-6');
+            $('#them').parent().find('h1').html('One of them');
             
             if(!playerPicked){
                 setUpPlayer(myJoker, playerId);
@@ -73,7 +74,8 @@ $(document).ready(function(){
             moveCardToEliminated($('#them').find('.joker'));
             opponentPicked = false;
             //All effect of winning will go here
-            $('#picker-header').html('Good Job! Pick next one to fight');
+            $('#them').parent().find('h1').html('Excellent! Go challenge next one');
+            $('#picker-header').html('Pick next one to fight');
             $('#players').css('opacity', '1.0');
             $('#fightarea').hide();
             
@@ -93,7 +95,7 @@ $(document).ready(function(){
             $('#fightarea').hide();
             lost = true;
             allDone = true;
-            $('#you').parent().find('h1').html('You have been ELIMINATED');
+            $('#you').parent().find('h1').html('You have been eliminated! Click "Rematch" to try again');
         }
     }
 

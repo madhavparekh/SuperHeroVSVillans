@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-    
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -30,19 +30,19 @@
             <div class="row  text-center" id="players">
                 <div class="col-2 joker" id="hjoker-card">
                     <div class="card">
-                        <img class="card-img-top" src="assets/images/heath-joker.jpg" id="hj" alt="">
+                        <img class="card-img-top" src="assets/images/heath-joker.jpg" alt="">
                         <div class="card-body">
                             <h4 class="card-title" id="hjname">Heath</h4>
-                            <p class="card-text" id="hjlife">180</span></p>
+                            <p class="card-text life">180</span></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-2 joker" id="jjoker-card">
                     <div class="card">
-                        <img class="card-img-top" src="assets/images/jack-joker.jpg" id="jj" alt="">
+                        <img class="card-img-top" src="assets/images/jack-joker.jpg" alt="">
                         <div class="card-body">
                             <h4 class="card-title" id="jjName">Jack</h4>
-                            <p class="card-text" id="cjlife">200</p>
+                            <p class="card-text life">200</p>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         <img class="card-img-top" src="assets/images/lego-joker.jpg" alt="">
                         <div class="card-body">
                             <h4 class="card-title">Lego</h4>
-                            <p class="card-text" id="ljlife">160</p>
+                            <p class="card-text life">160</p>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                         <img class="card-img-top" src="assets/images/cartoon-joker.jpg" alt="">
                         <div class="card-body">
                             <h4 class="card-title">Cartoon</h4>
-                            <p class="card-text" id="cjlife">260</p>
+                            <p class="card-text life">260</p>
                         </div>
                     </div>
                 </div>
@@ -72,21 +72,24 @@
                 <div class="row text-center" id="you"></div>
             </div>
             <div class="col-4" id="fightarea">
-                <button type="button" class="btn btn-danger">
+                <button type="button" class="btn btn-danger" id="strike">
                     STRIKE
                 </button>
             </div>
             <div class="col-4">
-                <h1>Them</h1>
-                <div class="row text-center"  id="them"></div>
+                <h1>One of Them</h1>
+                <div class="row text-center" id="them"></div>
             </div>
         </div>
-        <div>
+        <div class="my-3" id="eliminated">
             <h1>Eliminated</h1>
-            <div class="row mx-0 my-3 eliminated"></div>
+            <div class="row text-center eliminated"></div>
+        </div>
+        <div class="m-5 reset">
+            <button type="button" class="btn btn-primary" id="reset">
+                REMATCH
+            </button>
         </div>
     </div>
-      
-    
 </body>
 </html>

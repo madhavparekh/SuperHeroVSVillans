@@ -1,5 +1,5 @@
 body{
-    /* background: url("../images/batman-background.jpg"); */
+    background: url("../images/batman-background.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -7,4 +7,12 @@ body{
     /* width: 100%; */
     margin: 0 auto;
     opacity: 1.0;
+}
+.jumbotron{
+    opacity: 0.7;
+    color: red;
+}
+
+.container{
+    width: 75%;
 }

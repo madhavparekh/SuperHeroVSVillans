@@ -68,7 +68,6 @@ $(document).ready(function(){
         $('#you').find('.card-text.sLeft').html(myJoker.strengthLeft);
         $('#them').find('.card-text.sLeft').html(oppJoker.strengthLeft);
   
-
         if(oppJoker.strengthLeft <= 0){
             $('#eliminated').show();
             moveCardToEliminated($('#them').find('.joker'));
@@ -80,7 +79,7 @@ $(document).ready(function(){
             
             //check to see if any opponent left
             if($.trim($('#players').html()) == ''){
-                $('#picker-header').html('Yay, Gotham is all yours');
+                $('#them').parent().find('h1').html('Yay, Gotham is all yours');
                 allDone = true;
                 lost = false;
                 $('.reset').show();
@@ -94,7 +93,7 @@ $(document).ready(function(){
             $('#fightarea').hide();
             lost = true;
             allDone = true;
-            $('#picker-header').html('You have been ELIMINATED');
+            $('#you').parent().find('h1').html('You have been ELIMINATED');
         }
     }
 
@@ -113,6 +112,8 @@ $(document).ready(function(){
             $('#players').find('.life').show();
             $('#players').css('opacity', '1.0');
             $('#picker-header').html('Pick your Villian');
+            $('#you').parent().find('h1').html('You');
+            $('#them').parent().find('h1').html('One of them');
 
             //reset all booleans and scores..
             playerPicked = false;

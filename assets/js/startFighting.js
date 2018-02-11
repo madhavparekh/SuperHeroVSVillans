@@ -6,19 +6,26 @@ var jokerObj = {
     strikes: 0
 }
 var strikePower = {
-    Heath: 10,
+    Heath: 5,
     Jack: 25,
     Lego: 8,
     Cartoon: 15
 }
 var myJoker = Object.create(jokerObj);
 var oppJoker = Object.create(jokerObj);
+var playerPicked = false;
+var opponentPicked = false;
+var allDone = false;
 
 $(document).ready(function(){
-    var playerPicked = false;
-    var opponentPicked = false;
     $('.eliminated').hide();
     $('#fightarea').hide();
+    
+    //check if div #players is empty or not
+    if($.trim($('#players').html()) == '')
+        allDone = true;
+    else
+        allDone = false;
 
     $('img').on('click', function(e){
         
@@ -27,34 +34,65 @@ $(document).ready(function(){
             var playerId = $(e.target).parent().parent();
             playerId.removeClass('col-2');
             playerId.addClass('col-6');
-            console.log(playerId);
             
             if(!playerPicked){
-                
-                myJoker.name = playerId.find('.card-title').text();
-                myJoker.strength = parseInt(playerId.find('.card-text').text());
-                oppJoker.strengthLeft = oppJoker.strength;
-                console.log(myJoker.name +' ' +myJoker.strength);
-
+                setUpPlayer(myJoker, playerId);
                 playerId.appendTo('#you');
                 $('#picker-header').html('Now Pick your opponent to fight');
                 playerPicked = true;
             }
             else{
-                oppJoker.name = playerId.find('.card-title').text();
-                oppJoker.strength = parseInt(playerId.find('.card-text').text());
-                oppJoker.strengthLeft = oppJoker.strength;
-                console.log(oppJoker.name +' ' +oppJoker.strength + ' ' +oppJoker.strengthLeft);
+                setUpPlayer(oppJoker, playerId);
                 playerId.appendTo('#them');
                 opponentPicked = true;
-                //$('.eliminated').show();
+                //gray out other opponents till done with one selected
+                $('#players').css('opacity', '0.5');
                 $('#fightarea').show();
             }
         }
-        //Fight algo here
-        else{
+        
+    });
+    
+    //Call fightAlgo
+    $('button').click(function(){
+        console.log('Button clicked');
+        strikeOpp();
+    });
+    
+
+    function strikeOpp(){
+        myJoker.strikes++;
+        oppJoker.strengthLeft -= myJoker.strikePower * myJoker.strikes;
+        myJoker.strengthLeft -= oppJoker.strikePower;
+        console.log('my ' +myJoker.strengthLeft +' opp ' +oppJoker.strengthLeft);
+
+        $('#you').find('.card-text').html(myJoker.strengthLeft);
+        $('#them').find('.card-text').html(oppJoker.strengthLeft);
+
+        if(oppJoker.strengthLeft <= 0){
+
+            moveCardToEliminated($('#them').find('.joker'))
+            //All effect of winning will go here
+        }
+        if(myJoker.strengthLeft <= 0){
+            moveCardToEliminated($('#you').find('.joker'))
+            //All effect of losing will go here
             
         }
 
-    });
+    }
+    function moveCardToEliminated(card){
+        card.removeClass('col-6');
+        card.addClass('col-2');
+        card.appendTo('.eliminated');
+        $('.eliminated').show();
+    }
+
+    function setUpPlayer(player, playerId){
+        player.name = playerId.find('.card-title').text();
+        player.strength = parseInt(playerId.find('.card-text').text());
+        player.strengthLeft = player.strength;
+        player.strikePower = strikePower[player.name];
+        console.log(player.name +' ' +player.strength + ' ' + player.strikePower);
+    }
 })

@@ -28,39 +28,39 @@
         <div class=".player-picker">
             <h1 id="picker-header">Pick Your Player</h1>
             <div class="row  text-center" id="players">
-                <div class="col-2" id="hjoker-card">
+                <div class="col-2 joker" id="hjoker-card">
                     <div class="card">
                         <img class="card-img-top" src="assets/images/heath-joker.jpg" id="hj" alt="">
                         <div class="card-body">
                             <h4 class="card-title" id="hjname">Heath</h4>
-                            <p class="card-text">180</span></p>
+                            <p class="card-text" id="hjlife">180</span></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-2" id="jjoker-card">
+                <div class="col-2 joker" id="jjoker-card">
                     <div class="card">
                         <img class="card-img-top" src="assets/images/jack-joker.jpg" id="jj" alt="">
                         <div class="card-body">
                             <h4 class="card-title" id="jjName">Jack</h4>
-                            <p class="card-text">200</p>
+                            <p class="card-text" id="cjlife">200</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-2" id="ljoker-card">
+                <div class="col-2 joker" id="ljoker-card">
                     <div class="card">
                         <img class="card-img-top" src="assets/images/lego-joker.jpg" alt="">
                         <div class="card-body">
                             <h4 class="card-title">Lego</h4>
-                            <p class="card-text">160</p>
+                            <p class="card-text" id="ljlife">160</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-2" id="cjoker-card">
+                <div class="col-2 joker" id="cjoker-card">
                     <div class="card">
                         <img class="card-img-top" src="assets/images/cartoon-joker.jpg" alt="">
                         <div class="card-body">
                             <h4 class="card-title">Cartoon</h4>
-                            <p class="card-text">260</p>
+                            <p class="card-text" id="cjlife">260</p>
                         </div>
                     </div>
                 </div>
@@ -69,9 +69,7 @@
         <div class="row playground align-items-center align-self-center my-3">
             <div class="col-4">
                 <h1>You</h1>
-                <div class="row text-center" id="you">
-
-                </div>
+                <div class="row text-center" id="you"></div>
             </div>
             <div class="col-4" id="fightarea">
                 <button type="button" class="btn btn-danger">
@@ -80,16 +78,13 @@
             </div>
             <div class="col-4">
                 <h1>Them</h1>
-                <div class="row text-center"  id="them">
-
-                </div>
+                <div class="row text-center"  id="them"></div>
             </div>
         </div>
-        <div class="row mx-0 my-3 eliminated">
+        <div>
             <h1>Eliminated</h1>
-
+            <div class="row mx-0 my-3 eliminated"></div>
         </div>
-
     </div>
       
     
